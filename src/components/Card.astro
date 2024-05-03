@@ -1,20 +1,26 @@
 ---
+import MovielistImg from "../assets/movie-list.png"
 interface Props {
 	title: string;
-	href: string;
+	code_url: string;
+	preview_url: string
 }
 
-const { href, title } = Astro.props;
+const { code_url,preview_url, title } = Astro.props;
 ---
 
-<a target="_blank" href={href} class="block bg-sky-200 h-[400px] w-[300px] rounded-xl">
-	<div class="h-full flex justify-center items-center" >
-		<!-- <h2>
-			{title}
-			<span>&rarr;</span>
-		</h2> -->
-		<h1 class="text-[25px]" >
+<div class="block bg-neutral-600 h-[400px] w-[300px] rounded-xl overflow-hidden">
+	<div class="h-full flex flex-col " >
+
+		<div class="h-[200px] overflow-hidden" >
+			<img class="object-cover h-full w-auto" src={MovielistImg.src} alt="mmm">
+		</div>
+		<h1 class="text-[25px] text-center text-white font-semibold mt-[20px]" >
 			{title}
 		</h1>
+		<div class="mt-[20px] flex gap-2 justify-center" >
+			<a target="_blank" href={code_url} class="text-white">Repo</a>
+			<a target="_blank" href={preview_url} class="text-white">Preview</a>
+		</div>
 	</div>
-</a>
+</div>

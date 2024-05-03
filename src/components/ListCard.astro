@@ -1,9 +1,17 @@
 ---
 import Card from "./Card.astro"
+
+const projectData = [{
+    title: "Simple Movie List",
+    preview_url: "https://simple-movie-list-neon.vercel.app/",
+    code_url:"https://github.com/Nurrohmann/simple-movie-list"
+}]
 ---
 
 <div class="max-w-[1420px] mx-auto flex justify-center items-center mt-[20px]" >
-    <Card title="Simple Movie List" href="https://simple-movie-list-neon.vercel.app/" />
+    {projectData.map((item) => (
+        <Card title={item.title} code_url={item.code_url} preview_url={item.preview_url} />
+    ))}
 </div>
 
 
