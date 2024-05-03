@@ -1,5 +1,6 @@
 ---
 import MovielistImg from "../assets/movie-list.png"
+
 interface Props {
 	title: string;
 	code_url: string;
@@ -19,8 +20,8 @@ const { code_url,preview_url, title } = Astro.props;
 			{title}
 		</h1>
 		<div class="mt-[20px] flex gap-2 justify-center" >
-			<a target="_blank" href={code_url} class="text-white">Repo</a>
-			<a target="_blank" href={preview_url} class="text-white">Preview</a>
+			<a target="_blank" href={code_url} class="text-white bg-neutral-900 py-[4px] px-[15px] rounded-lg">Repo</a>
+			<a target="_blank" href={preview_url} class="text-white bg-neutral-900 py-[4px] px-[15px] rounded-lg">Preview</a>
 		</div>
 	</div>
 </div>
