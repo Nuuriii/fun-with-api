@@ -7,13 +7,13 @@ interface Props {
 const { href, title } = Astro.props;
 ---
 
-<a href={href} class="block bg-sky-500 h-[400px] w-[300px] rounded-xl">
+<a target="_blank" href={href} class="block bg-sky-200 h-[400px] w-[300px] rounded-xl">
 	<div class="h-full flex justify-center items-center" >
 		<!-- <h2>
 			{title}
 			<span>&rarr;</span>
 		</h2> -->
-		<h1>
+		<h1 class="text-[25px]" >
 			{title}
 		</h1>
 	</div>
