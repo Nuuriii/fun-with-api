@@ -1,5 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import { TbView360 } from "react-icons/tb";
+import { useState } from "react";
 
 interface TechStack {
   tech: any;
@@ -12,6 +13,31 @@ interface CardProps {
   preview_url: string;
   stack: TechStack[];
 }
+
+const Tooltip = ({
+  text,
+  children,
+}: {
+  text: string;
+  children: React.ReactNode;
+}) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  return (
+    <div
+      className="relative flex items-center"
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      {children}
+      {showTooltip && (
+        <div className="absolute bottom-full mb-2 w-max bg-gray-800 text-white text-sm rounded py-1 px-2 shadow-lg">
+          {text}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default function Card({
   title,
@@ -51,9 +77,18 @@ export default function Card({
             <span>Preview</span>
           </a>
         </div>
+
         <div className="flex justify-center mt-[30px] gap-2">
           {stack.map((item: any, index: number) => (
-            <div key={index}>{item.tech}</div>
+            <div
+              key={index}
+              className="relative flex flex-col items-center group cursor-pointer"
+            >
+              <div>{item.tech}</div>
+              <div className="absolute bottom-full mb-2 w-max bg-gray-800 text-white text-sm rounded py-1 px-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {item.name}
+              </div>
+            </div>
           ))}
         </div>
       </div>
